@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const DevController = require('./controllers/DevController')
 
 const routes = Router();
 
@@ -9,10 +10,6 @@ const routes = Router();
 // Route Params: request.params (Identificar um recurso na alteração | remoção)
 // Body: request.body (Dados para criação ou alteração de um registro)
 
-routes.post('/devs', (request, response) => {
-    const { github_username } = request.body;
-    
-    return response.json( { message: 'Hello OmniStack' });
-});
+routes.post('/devs', DevController.store);
 
 module.exports = routes;
